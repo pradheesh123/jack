@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.question {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.btn-group {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.yes {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.no {
+    background-color: #f44336;
+    color: white;
+}
+
+.no:hover,
+.yes:hover {
+    filter: brightness(1.2);
+}
+
+.fa-question-circle {
+    font-size: 36px;
+    margin-top: 50px;
+    color: #4CAF50;
+}
+
+    </style>
+    <div class="wrapper">
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+        <h2 class="question">hello</h2>
+        <div class="btn-group">
+            <button class="no">no</button>
+            <button class="yes">yes</button> 
+        </div>
+    </div>
+    <script>
+       const wrapper = document.querySelector('.wrapper');
+    const no = document.querySelector('.no');
+
+    no.addEventListener('click', () => {
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const noRect = no.getBoundingClientRect();
+        const i = Math.floor(Math.random() * (wrapperRect.width - noRect.width));
+        const j = Math.floor(Math.random() * (wrapperRect.height - noRect.height));
+        no.style.position = 'absolute';
+        no.style.left = i + "px";
+        no.style.top = j + "px";
+    });
+
+    const yes = document.querySelector('.yes');
+    const question = document.querySelector('.question');
+
+    yes.addEventListener('click', () => {
+        question.innerHTML = "thank you:)";
+    });
+</script>
+    </script>
+</body>
+</html>
